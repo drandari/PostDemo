@@ -5,6 +5,7 @@ import { AppState } from 'src/app/app.reducer';
 import { Post } from '../models/post.model';
 
 import * as actions from '../post.actions';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: '[app-post-item]',
@@ -23,17 +24,23 @@ export class PostItemComponent implements OnInit {
   // initialState: Post[] = [];
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private postService: PostService
   ) { }
 
-  ngOnInit(): void {
-   
+  ngOnInit(): void {   
 
   }
 
-
   delete(): void {
-    this.store.dispatch(actions.Delete({ id: this.post.id }));
+    this.postService.delete(this.post.id).subscribe(
+      (post : Post ) => {
+        this.store.dispatch(actions.Delete({ id: post.id }));        
+      },
+      (error) => {
+        console.error('Error al eliminar posts', error);
+      }
+    );
   }
 
 
