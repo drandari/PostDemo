@@ -12,6 +12,7 @@ import { PostModule } from './posts/post.module';
 import { FooterComponent } from './footer/footer.component';
 import { environment } from 'src/environments/environment';
 import { appReducers } from './app.reducer';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { appReducers } from './app.reducer';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     ReactiveFormsModule,
     AppRoutingModule,
     PostModule,
