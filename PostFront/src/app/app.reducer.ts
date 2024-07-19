@@ -1,15 +1,14 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { filtersValids } from './filter/filter.actions';
 import { filterReducer } from './filter/filter.reducer';
-import { Todo } from './todos/models/todo.model';
-import { todoReducer } from './todos/todo.reducer';
+import { Post } from './posts/models/post.model';
+import { postReducer } from './posts/post.reducer';
 
 export interface AppState {
-  todos: Todo[];
-  filter: filtersValids;
+  posts: Post[];
+  filter: string;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
-  todos: todoReducer,
+  posts: postReducer,
   filter: filterReducer
 };

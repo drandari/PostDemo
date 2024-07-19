@@ -1,0 +1,15 @@
+<div>
+  <input
+    class="new-post"
+    placeholder="Nombre"
+    [formControl]="txtInputNombre"
+    autofocus    
+  />
+  <input
+    class="new-post"
+    placeholder="Descripción"
+    [formControl]="txtInputDescripcion"
+    autofocus    
+  />
+  <button class="create" (click)="addPost()"><label>Agregar</label></button>
+</div>

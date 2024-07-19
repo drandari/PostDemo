@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "todoapp": {
+    "postapp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": {
-              "base": "dist/todoapp"
+              "base": "dist/postapp"
             },
             "index": "src/index.html",
             "polyfills": [
@@ -32,7 +32,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/todomvc-app-css/index.css"
+              "node_modules/postmvc-app-css/index.css"
             ],
             "scripts": [],
             "browser": "src/main.ts"
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "todoapp:build"
+            "buildTarget": "postapp:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "todoapp:build:production"
+              "buildTarget": "postapp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "todoapp:build"
+            "buildTarget": "postapp:build"
           }
         },
         "test": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "todoapp:serve"
+            "devServerTarget": "postapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "todoapp:serve:production"
+              "devServerTarget": "postapp:serve:production"
             }
           }
         }

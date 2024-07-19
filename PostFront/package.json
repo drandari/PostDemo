@@ -1,5 +1,5 @@
 {
-  "name": "todoapp",
+  "name": "postapp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,7 +22,6 @@
     "@ngrx/store": "^18.0.1",
     "@ngrx/store-devtools": "^18.0.1",
     "rxjs": "~6.6.0",
-    "todomvc-app-css": "^2.4.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.14.8"
   },

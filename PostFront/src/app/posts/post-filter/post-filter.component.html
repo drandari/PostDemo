@@ -1,0 +1,10 @@
+<header class="header">
+  <input
+    class="filter-post"
+    placeholder="Filtro de Nombre"
+    [formControl]="txtInputFiltroNombre"
+    autofocus    
+  />
+  
+  <button class="filter" (click)="filterPost()"><label>Buscar</label></button>
+</header>

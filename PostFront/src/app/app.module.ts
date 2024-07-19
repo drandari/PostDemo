@@ -8,7 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoModule } from './todos/todo.module';
+import { PostModule } from './posts/post.module';
 import { FooterComponent } from './footer/footer.component';
 import { environment } from 'src/environments/environment';
 import { appReducers } from './app.reducer';
@@ -22,7 +22,7 @@ import { appReducers } from './app.reducer';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    TodoModule,
+    PostModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
