@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -18,7 +19,7 @@ namespace PostAPI.Migrations
                 schema: "public",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", precision: 32, scale: 0, nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false).Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Nombre = table.Column<string>(type: "character varying", maxLength: 255, nullable: false),
                     Descripcion = table.Column<string>(type: "character varying", maxLength: 255, nullable: false)
                 },

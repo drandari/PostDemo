@@ -16,13 +16,13 @@ namespace PostAPI
             _repository = _unitOfWork.GetRepository<TEntity>();
         }
 
-        public virtual async Task<bool> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             await _repository.AddAsync(entity, cancellationToken);
 
             var affectd = await _unitOfWork.SaveChangeAsync(cancellationToken);
 
-            return affectd > 0;
+            return entity;
         }
 
         public virtual async Task<bool> AddRangeAsync(
@@ -35,7 +35,7 @@ namespace PostAPI
             return affectd > 0;
         }
 
-        public virtual async Task<bool> DeleteAsync(TKey key, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> DeleteAsync(TKey key, CancellationToken cancellationToken = default)
         {
             if (key is object[] keys)
             {
@@ -46,18 +46,20 @@ namespace PostAPI
                 await _repository.DeleteAsync(new object[] { key }, cancellationToken);
             }
 
+            var entity = await GetAsync(key, cancellationToken);
+
             var affectd = await _unitOfWork.SaveChangeAsync(cancellationToken);
 
-            return affectd > 0;
+            return entity;
         }
 
-        public virtual async Task<bool> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             _repository.Update(entity);
 
             var affectd = await _unitOfWork.SaveChangeAsync(cancellationToken);
 
-            return affectd > 0;
+            return entity;
         }
 
         public virtual async Task<bool> UpdateRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)

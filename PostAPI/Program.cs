@@ -19,6 +19,7 @@ builder.Services.AddCurrentUser();
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DataContext"));
+    
 });
 
 builder.Services.AddControllers()
@@ -29,6 +30,13 @@ builder.Services.AddControllers()
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+
+    var db = scope.ServiceProvider.GetRequiredService<DataContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

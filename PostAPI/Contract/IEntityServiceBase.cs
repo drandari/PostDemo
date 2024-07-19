@@ -1,17 +1,15 @@
-using PostAPI;
-
 namespace PostAPI
 {
     public interface IEntityServiceBase<TEntity, TKey> where TEntity : class
     {
-        Task<bool> AddAsync(TEntity entity, CancellationToken cancellationToken = default);
+        Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default);
 
         Task<bool> AddRangeAsync(
             IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
 
-        Task<bool> DeleteAsync(TKey key, CancellationToken cancellationToken = default);
+        Task<TEntity> DeleteAsync(TKey key, CancellationToken cancellationToken = default);
 
-        Task<bool> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
+        Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
 
         Task<bool> UpdateRangeAsync(
             IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);

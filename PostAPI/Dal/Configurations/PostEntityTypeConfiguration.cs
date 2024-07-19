@@ -15,7 +15,7 @@ namespace PostAPI
 
             builder
                 .Property(x => x.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("Id")
                 .HasPrecision(32, 0);
 

@@ -1,8 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using PostAPI;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace PostAPI
 {
@@ -25,13 +21,13 @@ namespace PostAPI
         }
 
         [HttpPost]
-        public Task<bool> AddAsync([FromBody] Post post)
+        public Task<Post> AddAsync([FromBody] Post post)
         {
             return _service.AddAsync(post, HttpContext.RequestAborted);
         }
 
         [HttpDelete]
-        public Task<bool> DeleteAsync([FromQuery] int id)
+        public Task<Post> DeleteAsync([FromQuery] int id)
         {
             return _service.DeleteAsync(id, HttpContext.RequestAborted);
         }

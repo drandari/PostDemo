@@ -26,7 +26,8 @@ namespace PostAPI.Migrations
                     b.Property<int>("Id")
                         .HasPrecision(32)
                         .HasColumnType("integer")
-                        .HasColumnName("Id");
+                        .HasColumnName("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
